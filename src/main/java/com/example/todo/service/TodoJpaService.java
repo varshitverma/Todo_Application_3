@@ -61,11 +61,11 @@ public class TodoJpaService implements TodoRepository {
             if (todo.getTodo() != null) {
                 newTodo.setTodo(todo.getTodo());
             }
-            if (todo.getStatus() != null) {
-                newTodo.setStatus(todo.getStatus());
-            }
             if (todo.getPriority() != null) {
                 newTodo.setPriority(todo.getPriority());
+            }
+            if (todo.getStatus() != null) {
+                newTodo.setStatus(todo.getStatus());
             }
             
             todoJpaRepository.save(newTodo);
