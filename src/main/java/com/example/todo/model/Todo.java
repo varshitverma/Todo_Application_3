@@ -22,19 +22,19 @@ public class Todo {
     @Column(name="todo")
     private String todo;
 
-    @Column(name="status")
-    private String status;
-
     @Column(name="priority")
     private String priority;
 
+    @Column(name="status")
+    private String status;
+
     public Todo() {}
 
-    public Todo(int id, String todo, String status, String priority) {
+    public Todo(int id, String todo, String priority, String status) {
         this.id = id;
         this.todo = todo;
-        this.status = status;
         this.priority = priority;
+        this.status = status;
     }
     public void setId(int id) {
         this.id = id;
@@ -52,20 +52,20 @@ public class Todo {
         return this.todo;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
     public void setPriority(String priority) {
         this.priority = priority;
     }
 
     public String getPriority() {
         return this.priority;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return this.status;
     }
 
 }
