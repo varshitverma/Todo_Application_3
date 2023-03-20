@@ -36,12 +36,13 @@ public class Todo {
         this.priority = priority;
         this.status = status;
     }
+    
     public void setId(int id) {
         this.id = id;
     }
 
     public int getId() {
-        return this.id;
+        return id;
     }
 
     public void setTodo(String todo) {
@@ -49,7 +50,7 @@ public class Todo {
     }
 
     public String getTodo() {
-        return this.todo;
+        return todo;
     }
 
     public void setPriority(String priority) {
@@ -57,7 +58,7 @@ public class Todo {
     }
 
     public String getPriority() {
-        return this.priority;
+        return priority;
     }
 
     public void setStatus(String status) {
@@ -65,7 +66,7 @@ public class Todo {
     }
 
     public String getStatus() {
-        return this.status;
+        return status;
     }
 
 }
