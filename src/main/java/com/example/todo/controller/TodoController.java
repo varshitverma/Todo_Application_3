@@ -1,72 +1,51 @@
 /*
  * You can use the following import statements
- * 
- * import javax.persistence.*;
+ *
+ * import org.springframework.beans.factory.annotation.Autowired;
+ * import org.springframework.web.bind.annotation.*;
+ * import java.util.*;
  * 
  */
 
 // Write your code here
-package com.example.todo.model;
+package com.example.todo.controller;
 
-import javax.persistence.*;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
-@Entity
-@Table(name="todolist")
-public class Todo {
+import java.util.*;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private int id;
+import com.example.todo.service.TodoJpaService;
+import com.example.todo.model.Todo;
 
-    @Column(name="todo")
-    private String todo;
-
-    @Column(name="priority")
-    private String priority;
-
-    @Column(name="status")
-    private String status;
-
-    public Todo() {}
-
-    public Todo(int id, String todo, String priority, String status) {
-        this.id = id;
-        this.todo = todo;
-        this.priority = priority;
-        this.status = status;
-    }
+@RestController
+public class TodoController {
     
-    public void setId(int id) {
-        this.id = id;
+    @Autowired
+    private TodoJpaService todoJpaService;
+
+    @GetMapping("/todos")
+    public ArrayList<Todo> getTodos() {
+        return todoJpaService.getTodos();
     }
 
-    public int getId() {
-        return id;
+    @PostMapping("/todos")
+    public Todo addTodo(@RequestBody Todo todo) {
+        return todoJpaService.addTodo(todo);
     }
 
-    public void setTodo(String todo) {
-        this.todo = todo;
+    @GetMapping("/todos/{id}")
+    public Todo getTodoById(@PathVariable("id") int id) {
+        return todoJpaService.getTodoById(id);
     }
 
-    public String getTodo() {
-        return todo;
+    @PutMapping("/todos/{id}")
+    public Todo updateTodo(@PathVariable("id") int id, @RequestBody Todo todo) {
+        return todoJpaService.updateTodo(id, todo);
     }
 
-    public void setPriority(String priority) {
-        this.priority = priority;
+    @DeleteMapping("/todos/{id}")
+    public void deleteTodo(@PathVariable("id") int id) {
+        todoJpaService.deleteTodo(id);
     }
-
-    public String getPriority() {
-        return priority;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
 }
