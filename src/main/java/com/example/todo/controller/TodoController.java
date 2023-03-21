@@ -44,8 +44,9 @@ public class TodoController {
         return todoJpaService.updateTodo(id, todo);
     }
 
-    @DeleteMapping("/todos/{id}")
-    public void deleteTodo(@PathVariable("id") int id) {
-        todoJpaService.deleteTodo(id);
+    @DeleteMapping("/todos/{id}")   
+    public void deleteTodo(@PathVariable int id) {  
+        todoJpaService.deleteTodo(id);  
     }
+    
 }
