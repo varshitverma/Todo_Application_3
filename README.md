@@ -27,7 +27,7 @@ Possible values for `priority` are `HIGH`, `MEDIUM`, and `LOW`.
 Possible values for `status` are `TO DO`, `IN PROGRESS`, and `DONE`.
 </MultiLineNote>
 
-### Completion Instructions
+### Instructions
 
 - `Todo.java`: `Todo` class should contain the following attributes.
 
