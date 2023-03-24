@@ -1,4 +1,4 @@
-Given five files,
+Files,
 
 - `TodoController.java`
 - `TodoRepository.java`
